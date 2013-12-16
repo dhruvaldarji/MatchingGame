@@ -20,7 +20,6 @@
 {
     // if array doesnt exist (is nil) then create a new array
     if(!_cards) _cards = [[NSMutableArray alloc] init];
-    NSLog(@"Deck: method: cards");
     return _cards;
 }
 

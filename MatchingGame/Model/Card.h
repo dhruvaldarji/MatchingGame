@@ -15,7 +15,7 @@
 // Strong means that the pointer exists as long
 
 @property (nonatomic, getter = isChosen) BOOL chosen;
-@property (nonatomic, getter = ismatched) BOOL matched;
+@property (nonatomic, getter = isMatched) BOOL matched;
 
 -(int)match:(NSArray *)otherCards;
 
