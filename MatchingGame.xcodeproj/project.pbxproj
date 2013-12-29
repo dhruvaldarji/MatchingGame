@@ -26,6 +26,7 @@
 		EBB3A6E8185D4F8D0027F11C /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3A6E1185D4F8D0027F11C /* Deck.m */; };
 		EBB3A6E9185D4F8D0027F11C /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3A6E3185D4F8D0027F11C /* PlayingCard.m */; };
 		EBB3A6EA185D4F8D0027F11C /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3A6E5185D4F8D0027F11C /* PlayingCardDeck.m */; };
+		EBB9C4D0186FBB3A00CA389D /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB9C4CF186FBB3A00CA389D /* PlayingCardGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		EBB3A6E3185D4F8D0027F11C /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 		EBB3A6E4185D4F8D0027F11C /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		EBB3A6E5185D4F8D0027F11C /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		EBB9C4CE186FBB3A00CA389D /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
+		EBB9C4CF186FBB3A00CA389D /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 			children = (
 				EB65FFCD185C111700FDDFFA /* Main.storyboard */,
 				EB65FFD0185C111700FDDFFA /* CardGameViewController.h */,
+				EBB9C4CE186FBB3A00CA389D /* PlayingCardGameViewController.h */,
+				EBB9C4CF186FBB3A00CA389D /* PlayingCardGameViewController.m */,
 				EB65FFD1185C111700FDDFFA /* CardGameViewController.m */,
 				EB65FFD3185C111700FDDFFA /* Images.xcassets */,
 				EB65FFC2185C111700FDDFFA /* Supporting Files */,
@@ -291,6 +296,7 @@
 				EBB3A6E6185D4F8D0027F11C /* Card.m in Sources */,
 				EBB3A6E8185D4F8D0027F11C /* Deck.m in Sources */,
 				EB65FFC8185C111700FDDFFA /* main.m in Sources */,
+				EBB9C4D0186FBB3A00CA389D /* PlayingCardGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

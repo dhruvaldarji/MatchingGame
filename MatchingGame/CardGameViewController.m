@@ -7,14 +7,13 @@
 //
 
 #import "CardGameViewController.h"
-#import "PlayingCardDeck.h"
-#import "PlayingCard.h"
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UITextView *movesHistoryTextView;
 
 @end
 
@@ -26,17 +25,19 @@
     return _game;
 }
 
-
--(Deck *)createDeck
+-(Deck *)createDeck // abstract
 {
-    return [[PlayingCardDeck alloc] init];
+    return nil;
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender
 {
+    NSString *text = @"";
     int cardIndex = [self.cardButtons indexOfObject:sender];
-    [self.game chooseCardAtIndex:cardIndex];
+    text = [self.game chooseCardAtIndex:cardIndex];
     [self updateUI];
+    [self printToGame:text];
+    
 }
 
 -(void)updateUI{
@@ -52,6 +53,7 @@
 
 -(NSString *)titleForCard:(Card*) card
 {
+    
     return card.isChosen ? card.contents : @"";
 }
 
@@ -60,10 +62,17 @@
     return [UIImage imageNamed:card.isChosen ? @"Image" : @"AppleBack"];
 }
 
+-(void) printToGame: (NSString *) message
+{
+    NSString *text = self.movesHistoryTextView.text;
+    self.movesHistoryTextView.text = [NSString stringWithFormat:@"%@ \n%@",message,text];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
     
 }
 
