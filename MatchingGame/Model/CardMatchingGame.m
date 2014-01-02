@@ -44,13 +44,13 @@
 }
 
 static const int MISMATCH_PENALTY = 2;
-static const int MATCH_BONUS = 4;
+static const int MATCH_BONUS = 10;
 static const int COST_TO_CHOSE = 1;
 
 -(NSString *) chooseCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
-    self.moveText = @"Nothing";
+    self.moveText = [NSString stringWithFormat:@"%@",card.contents];
     if(!card.isMatched){
         if (card.isChosen) {
             card.chosen = NO;
@@ -75,7 +75,6 @@ static const int COST_TO_CHOSE = 1;
             }
             self.score -= COST_TO_CHOSE;
             card.chosen = YES;
-            self.moveText = [NSString stringWithFormat:@"%@",card.contents];
         }
     }
     return self.moveText;

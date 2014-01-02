@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *movesHistoryTextView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *gameModeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *resetGameButton;
 
 @end
 
@@ -55,6 +56,18 @@
     self.gameModeLabel.text = [NSString stringWithFormat:@"Game Mode: %d cards", self.game.cardMatchingMode];
 }
 
+- (IBAction)reset:(UIButton *)sender
+{
+    self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+    for (UIButton *cardButton in self.cardButtons) {
+        [cardButton setTitle:@"" forState:UIControlStateNormal];
+        [cardButton setBackgroundImage:[UIImage imageNamed:@"AppleBack"] forState:UIControlStateNormal];
+        [cardButton setEnabled:YES];
+    }
+    self.scoreLabel.text = @"Score: 0";
+    self.movesHistoryTextView.text = @"";
+}
+
 -(void)updateUI{
     for(UIButton *cardButton in self.cardButtons){
         int cardIndex = [self.cardButtons indexOfObject:cardButton];
@@ -62,7 +75,7 @@
         [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
-        self.scoreLabel.text = [NSString stringWithFormat:@"Score %d", self.game.score];
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     }
 }
 

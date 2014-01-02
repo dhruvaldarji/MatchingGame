@@ -22,7 +22,7 @@
         if([card.contents isEqualToString:self.contents])
             // self means this
         {
-            score = 1;
+            score = 2;
         }
     }
     
