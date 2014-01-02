@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UITextView *movesHistoryTextView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UILabel *gameModeLabel;
 
 @end
 
@@ -38,6 +40,19 @@
     [self updateUI];
     [self printToGame:text];
     
+}
+
+- (IBAction)gameModeSelected:(UISegmentedControl *)sender
+{
+    if (self.gameModeSegmentedControl.selectedSegmentIndex == 0) {
+        self.game.cardMatchingMode = 2;
+    }
+    
+    if (self.gameModeSegmentedControl.selectedSegmentIndex == 1) {
+        self.game.cardMatchingMode = 3;
+    }
+    
+    self.gameModeLabel.text = [NSString stringWithFormat:@"Game Mode: %d cards", self.game.cardMatchingMode];
 }
 
 -(void)updateUI{

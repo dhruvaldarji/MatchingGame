@@ -20,4 +20,6 @@
 
 @property (nonatomic, readonly) NSInteger score;
 
+@property (nonatomic) NSInteger cardMatchingMode;
+
 @end
