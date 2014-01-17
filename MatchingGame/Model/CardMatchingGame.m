@@ -51,11 +51,11 @@ static const int COST_TO_CHOSE = 1;
 {
     Card *card = [self cardAtIndex:index];
     self.moveText = [NSString stringWithFormat:@"%@",card.contents];
-    if(!card.isMatched){
-        if (card.isChosen) {
+    if(!card.isMatched){ // If the card is not matched
+        if (card.isChosen) { // if the card is already chosen
             card.chosen = NO;
             self.moveText = [NSString stringWithFormat:@"%@", card.contents];
-        } else {
+        } else { // if the card is not currently chosen
             // Match against other cards
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
@@ -70,7 +70,6 @@ static const int COST_TO_CHOSE = 1;
                         self.score -= MISMATCH_PENALTY;
                         self.moveText = [NSString stringWithFormat:@"%@ does not match %@",card.contents,otherCard.contents];
                     }
-                    break; // can only chosen 2 cards for now
                 }
             }
             self.score -= COST_TO_CHOSE;
